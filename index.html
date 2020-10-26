@@ -335,6 +335,59 @@
 								</div>
 							</div>
 						</article>
+						<article class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-12" style="position: absolute; left: 33.332%; top: 0px;">
+							<div class="grid-inner">
+								<div class="portfolio-image">
+									<!-- <a href="#"> -->
+										<img src="images/product/press-machine.jpg" alt="Press Parts">
+									<!-- </a> -->
+									<div class="bg-overlay">
+										<div class="bg-overlay-content flex-column not-animated" data-hover-animate="fadeIn" style="animation-duration: 600ms;">
+											<div class="portfolio-desc p-0 center not-animated" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" style="animation-duration: 350ms;">
+												<h3>Press Parts</h3>
+											</div>
+										</div>
+										<div class="bg-overlay-bg not-animated" data-hover-animate="fadeIn" style="animation-duration: 600ms;"></div>
+									</div>
+								</div>
+							</div>
+						</article>
+
+						<article class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-12" style="position: absolute; left: 33.332%; top: 0px;">
+							<div class="grid-inner">
+								<div class="portfolio-image">
+									<!-- <a href="#"> -->
+										<img src="images/product/brass-copper-washers.png" alt="Brass Copper Washer">
+									<!-- </a> -->
+									<div class="bg-overlay">
+										<div class="bg-overlay-content flex-column not-animated" data-hover-animate="fadeIn" style="animation-duration: 600ms;">
+											<div class="portfolio-desc p-0 center not-animated" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" style="animation-duration: 350ms;">
+												<h3>Brass Copper Washer</h3>
+											</div>
+										</div>
+										<div class="bg-overlay-bg not-animated" data-hover-animate="fadeIn" style="animation-duration: 600ms;"></div>
+									</div>
+								</div>
+							</div>
+						</article>
+
+						<article class="portfolio-item col-lg-6 col-md-4 col-sm-6 col-12 wide" style="position: absolute; left: 33.332%; top: 198.484px;">
+							<div class="grid-inner">
+								<div class="portfolio-image">
+									<!-- <a href="#"> -->
+										<img src="images/product/washer_big.png" alt="Copper Brass Washer">
+									<!-- </a> -->
+									<div class="bg-overlay">
+										<div class="bg-overlay-content flex-column animated fadeOut" data-hover-animate="fadeIn" style="animation-duration: 600ms;">
+											<div class="portfolio-desc p-0 center animated fadeOutUpSmall" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" style="animation-duration: 350ms;">
+												<h3>Copper Brass Washer</h3>
+											</div>
+										</div>
+										<div class="bg-overlay-bg animated fadeOut" data-hover-animate="fadeIn" style="animation-duration: 600ms;"></div>
+									</div>
+								</div>
+							</div>
+						</article>
 
 					</div><!-- #portfolio end -->
 
@@ -353,8 +406,12 @@
 					</div>
 
 					<div class="row align-items-stretch">
-
-						<div class="col-lg-4 d-none d-md-block" style="background: url('images/lathe_machine.jpg') center center no-repeat; background-size: cover;"></div>
+						<div class="col-lg-4 d-none d-md-block">
+							<video poster="images/press-machine.jpg" preload="auto" loop="" autoplay="" muted="" style="width: 550px; height: 470px;">
+								<source src="images/Press-machine-slomo.mp4" type="video/mp4">
+								<!-- <source src="images/videos/explore.webm" type="video/webm"> -->
+							</video>
+						</div>
 						<div class="col-lg-8">
 							<div class="row align-items-stretch grid-border clearfix">
 								<div class="col-lg-4 col-md-6 col-padding">
@@ -623,9 +680,9 @@
 								<h4>Subscribe</h4>
 
 								<div class="widget-subscribe-form-result"></div>
-								<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0" novalidate="novalidate">
-									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark required email" placeholder="Your Email Address">
-									<button class="button button-border button-circle button-light topmargin-sm" type="submit">Subscribe Now</button>
+								<form id="sub-form" action="https://formspree.io/f/mbjpopqq" method="post">
+									<input type="email" name="email" class="form-control form-control-lg not-dark required email" placeholder="Your Email Address">
+									<button class="button button-border button-circle button-light topmargin-sm" id="email_submit" type="submit">Subscribe Now</button>
 								</form>
 							</div>
 
@@ -649,7 +706,7 @@
 
 			<div id="copyrights">
 				<div class="container center clearfix">
-					Copyrights Aditya Karnik 2020 | All Rights Reserved
+					Copyrights <a href="https://adityakarnik.com">Aditya Karnik</a> 2020 | All Rights Reserved
 				</div>
 			</div>
 
@@ -659,7 +716,56 @@
 
 	<!-- JavaScripts
 	============================================= -->
-	<script async="" src="//www.google-analytics.com/analytics.js"></script><script src="js/jquery.js"></script>
+	<script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="js/jquery.js"></script>
+	<script>
+		window.addEventListener("DOMContentLoaded", function() {
+
+		// get the form elements defined in your form HTML above
+
+		var form = document.getElementById("sub-form");
+		var button = document.getElementById("email_submit");
+		// var status = document.getElementById("my-form-status");
+
+		// Success and Error functions for after the form is submitted
+
+			function success() {
+				form.reset();
+				button.style = "display: none ";
+				// status.innerHTML = "Thanks!";
+				console.log("Success");
+			}
+
+			function error() {
+				// status.innerHTML = "Oops! There was a problem.";
+				console.log("ERROR");
+			}
+
+		// handle the form submission event
+
+			form.addEventListener("submit", function(ev) {
+				ev.preventDefault();
+				var data = new FormData(form);
+				ajax(form.method, form.action, data, success, error);
+				});
+			});
+
+		// helper function for sending an AJAX request
+
+			function ajax(method, url, data, success, error) {
+				var xhr = new XMLHttpRequest();
+				xhr.open(method, url);
+				xhr.setRequestHeader("Accept", "application/json");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState !== XMLHttpRequest.DONE) return;
+					if (xhr.status === 200) {
+						success("Good Job", xhr.responseType);
+					} else {
+						error(xhr.status, xhr.response, xhr.responseType);
+					}
+				};
+			xhr.send(data);
+		}
+	</script>
 	<script src="js/plugins.min.js"></script>
 	<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyBPHBkHbxlsp255-WwFSBcj4Eq3WUovF00"></script> -->
 
