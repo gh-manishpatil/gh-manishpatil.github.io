@@ -804,33 +804,6 @@
 			xhr.send(data);
 		}
 	</script>
-	<script type="text/javascript">
-		ajax("GET", "https://www.lme.com/en-GB/Metals/Non-ferrous/Copper", success, error);
-		function success() {
-			console.log("Success");
-		}
-		function error() {
-			console.log("ERROR");
-		}
-		// helper function for sending an AJAX request
-		function ajax(method, url, success, error) {
-			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://www.lme.com/en-GB/Metals/Non-ferrous/Copper");
-			xhr.setRequestHeader("Accept", "application/json");
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState !== XMLHttpRequest.DONE) return;
-				if (xhr.status === 200) {
-					console.log(xhr.response);
-					success("Good Job", xhr.responseType);
-				} else {
-					console.log("xhr.status", xhr.status);
-					console.log("xhr.response", xhr.response);
-					error(xhr.status, xhr.response, xhr.responseType);
-				}
-			};
-			xhr.send();
-		}
-	</script>
 	<script src="js/plugins.min.js"></script>
 	<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyBPHBkHbxlsp255-WwFSBcj4Eq3WUovF00"></script> -->
 
@@ -845,15 +818,6 @@
 		localStorage.clear();
 		var dates = [];
 		var rates = [];
-		// var sample_url = "https://sheets.googleapis.com/v4/spreadsheets/1RXzCkgpFUNTpgx4b9fBBketzZ4tQX3w9NSfRKWKohpQ/?key=AIzaSyBPSjIG2naVt34qR8ilcKLm9-eowd0NoR0";
-		// console.log("url", sample_url);
-		// var url_parameter = document.location.search.split(/\?url=/)[1]
-		// var url = url_parameter || sample_url;
-		// var googleSpreadsheet = new GoogleSpreadsheet();
-		// googleSpreadsheet.url(url);
-		// googleSpreadsheet.load(function(result) {
-		// 	console.log("got it", result);
-		// });
 		var url = "https://sheets.googleapis.com/v4/spreadsheets/1RXzCkgpFUNTpgx4b9fBBketzZ4tQX3w9NSfRKWKohpQ/?key=AIzaSyBPSjIG2naVt34qR8ilcKLm9-eowd0NoR0&includeGridData=true";                                                             
 		axios.get(url)
 		.then(function (response) {
@@ -865,14 +829,11 @@
 				dates.push(date);
 				rates.push(rate);
 			}
-			// for (i=0; i<length(); i[1].
-			// values[1].formattedValue);
-			console.log("Success", response);                                                                                                                                                    
+			
 		})
 		.catch(function (error) {
-			console.log("error", error);                                                                                                                                                       
+			console.log("error", error);                                                                                                                                                  
 		}); 
-		// var MONTHS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 		var progress = document.getElementById('animationProgress');
 		var config = {
 			type: 'line',
