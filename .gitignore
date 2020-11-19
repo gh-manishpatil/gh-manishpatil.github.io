@@ -1,0 +1,5 @@
+venv
+*.zip
+requirements.txt
+lambda_function.py
+Copper

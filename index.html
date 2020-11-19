@@ -7,6 +7,31 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="author" content="SemiColonWeb">
 
+	<!-- Pre-fetching
+	============================================= -->
+		<link rel="prefetch" href="images/taskindustries-dark.png" />
+		<link rel="prefetch" href="images/taskindustries-dark@2x.png" />
+		<link rel="prefetch" href="images/Press-machine-slomo.mp4" />
+		<link rel="prefetch" href="images/map-icon-red.png" />
+		<link rel="prefetch" href="images/taskindustries.png" />
+		<link rel="prefetch" href="images/taskindustries@2x.png" />
+		<link rel="prefetch" href="images/taskindustries.svg" />
+		<link rel="prefetch" href="images/press-machine.jpg" />
+		<link rel="prefetch" href="images/product/aluminium_flat_bar.jpg" />
+		<link rel="prefetch" href="images/product/aluminium_pipes.jpg" />
+		<link rel="prefetch" href="images/product/brass-copper-washers.png" />
+		<link rel="prefetch" href="images/product/brass_rods.png" />
+		<link rel="prefetch" href="images/product/brass_strips.jpg" />
+		<link rel="prefetch" href="images/product/copper-rods.jpg" />
+		<link rel="prefetch" href="images/product/Copper_Busbars.jpg" />
+		<link rel="prefetch" href="images/product/copper_flat_bar.jpg" />
+		<link rel="prefetch" href="images/product/copper_foils.jpg" />
+		<link rel="prefetch" href="images/product/copper_pipes.jpg" />
+		<link rel="prefetch" href="images/product/copper_rods.jpg" />
+		<link rel="prefetch" href="images/product/copper_strip.jpg" />
+		<link rel="prefetch" href="images/product/copper_strips.jpg" />
+		<link rel="prefetch" href="images/product/press-machine.jpg" />
+		<link rel="prefetch" href="images/product/washer_big.png" />
 	<!-- Stylesheets
 	============================================= -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700|Nunito:900&amp;display=swap" rel="stylesheet" type="text/css">
@@ -81,7 +106,7 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="full-header transparent-header border-full-header header-size-custom" data-sticky-shrink="false" data-sticky-class="secondary-color">
+		<header id="header" class="full-header transparent-header border-full-header header-size-custom sticky-header secondary-color" data-sticky-shrink="false" data-sticky-class="secondary-color">
 			<div id="header-wrap" class="">
 				<div class="container">
 					<div class="header-row">
@@ -407,7 +432,7 @@
 
 					<div class="row align-items-stretch">
 						<div class="col-lg-4 d-none d-md-block">
-							<video poster="images/press-machine.jpg" preload="auto" loop="" autoplay="" muted="" style="width: 550px; height: 470px;">
+							<video poster="images/press-machine.jpg" preload="auto" loop="" autoplay="" muted="" style="width: 385px; height: 480px;">
 								<source src="images/Press-machine-slomo.mp4" type="video/mp4">
 								<!-- <source src="images/videos/explore.webm" type="video/webm"> -->
 							</video>
@@ -542,6 +567,19 @@
 						</div>
 
 					</div>
+
+				</div>
+				<div class="container clearfix">
+
+					<!-- Charts Area
+					============================================= -->
+					<div class="bottommargin mx-auto" style="max-width: 750px; min-height: 350px;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+						<canvas id="chart-0" style="display: block; width: 690px; height: 345px;" width="690" height="345" class="chartjs-render-monitor"></canvas>
+						<progress id="animationProgress" max="1" value="0" style="width: 100%"></progress>
+					</div>
+					<!-- Charts Area End -->
+
+					<div class="line"></div>
 
 				</div>
 
@@ -766,12 +804,123 @@
 			xhr.send(data);
 		}
 	</script>
+	<script type="text/javascript">
+		ajax("GET", "https://www.lme.com/en-GB/Metals/Non-ferrous/Copper", success, error);
+		function success() {
+			console.log("Success");
+		}
+		function error() {
+			console.log("ERROR");
+		}
+		// helper function for sending an AJAX request
+		function ajax(method, url, success, error) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "https://www.lme.com/en-GB/Metals/Non-ferrous/Copper");
+			xhr.setRequestHeader("Accept", "application/json");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState !== XMLHttpRequest.DONE) return;
+				if (xhr.status === 200) {
+					console.log(xhr.response);
+					success("Good Job", xhr.responseType);
+				} else {
+					console.log("xhr.status", xhr.status);
+					console.log("xhr.response", xhr.response);
+					error(xhr.status, xhr.response, xhr.responseType);
+				}
+			};
+			xhr.send();
+		}
+	</script>
 	<script src="js/plugins.min.js"></script>
 	<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyBPHBkHbxlsp255-WwFSBcj4Eq3WUovF00"></script> -->
 
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
+	<script src="js/chart.js"></script>
+	<script src="js/chart-utils.js"></script>
+	<script src="js/axios.min.js"></script>
+	<script type="text/javascript" src="js/google-spreadsheet.js"></script>
+	<script>
+		localStorage.clear();
+		var dates = [];
+		var rates = [];
+		// var sample_url = "https://sheets.googleapis.com/v4/spreadsheets/1RXzCkgpFUNTpgx4b9fBBketzZ4tQX3w9NSfRKWKohpQ/?key=AIzaSyBPSjIG2naVt34qR8ilcKLm9-eowd0NoR0";
+		// console.log("url", sample_url);
+		// var url_parameter = document.location.search.split(/\?url=/)[1]
+		// var url = url_parameter || sample_url;
+		// var googleSpreadsheet = new GoogleSpreadsheet();
+		// googleSpreadsheet.url(url);
+		// googleSpreadsheet.load(function(result) {
+		// 	console.log("got it", result);
+		// });
+		var url = "https://sheets.googleapis.com/v4/spreadsheets/1RXzCkgpFUNTpgx4b9fBBketzZ4tQX3w9NSfRKWKohpQ/?key=AIzaSyBPSjIG2naVt34qR8ilcKLm9-eowd0NoR0&includeGridData=true";                                                             
+		axios.get(url)
+		.then(function (response) {
+			data = response.data.sheets[0].data[0].rowData;
+			for (i=1; i<data.length; i++) {
+				if (i==11) {break;}
+				date = data[i].values[0].formattedValue;
+				rate = data[i].values[1].formattedValue;
+				dates.push(date);
+				rates.push(rate);
+			}
+			// for (i=0; i<length(); i[1].
+			// values[1].formattedValue);
+			console.log("Success", response);                                                                                                                                                    
+		})
+		.catch(function (error) {
+			console.log("error", error);                                                                                                                                                       
+		}); 
+		// var MONTHS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+		var progress = document.getElementById('animationProgress');
+		var config = {
+			type: 'line',
+			data: {
+				labels: dates.reverse(), // for dates
+				datasets: [{
+					label: 'Rates',
+					fill: false,
+					borderColor: "#b87333",
+					backgroundColor: '#b87333',
+					data: rates.reverse()
+				}]
+			},
+			options: {
+				title:{
+					display:true,
+					text: "Copper Rate Chart - Daily Updated"
+				},
+				animation: {
+					duration: 2000,
+					onAnimationProgress: function(animation) {
+						progress.value = animation.currentStep / animation.numSteps;
+					},
+					onAnimationComplete: function(animation) {
+						window.setTimeout(function() {
+							progress.value = 0;
+						}, 2000);
+					}
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById("chart-0").getContext("2d");
+			window.myLine = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myLine.update();
+		});
+
+	</script>
 
 
 </body></html>

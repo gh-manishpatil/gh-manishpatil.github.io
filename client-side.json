@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "copper-cash-rates",
+  "private_key_id": "92fac4b38f83dfbaa9752199d498e0bdee4e96d6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDdq5RfMQeNqb0l\nqwGQgVlPH9ugUsFcZR3ayJ8xbJUOrXEmskQGF+0jx0opNLI122c3SvVrfRhnMDUQ\n4ZcX0H5aMmYgUAF91A+nIRpiSLXGlDMvNUzwmtqTYaiGJ0aqaJDEVW0wLahFodIx\nhern6QHEDzfTKyqIKz1mwZcmjkVvg6OFwP1QHYidr23GkQ030mU1uUS66hvKAX1P\nAkXVN3DtLkNOeUV2PJUeGEPAlkUGPXc5L9EPva9EdYM6/HwOwbv6irwzP2F2iNn2\noPyP0ccYT7NQ3FkwWsNYVIqUOG6a8OQSanY/9xT4r3IwoJQXAmSv38WnPT1S8PZl\nZ7Hwe+YfAgMBAAECggEADVTj5AO5XhI+z3Sk7/Fvkxwp488GVQ25yW42cM0Ee/D/\ndKHVCH7I4tV6Btdl/mo3H3KxJulLne0ey+idYy/FYZxVWw0kwdIOrPEHOrD/ybUh\nDO5KNdBCZAnEDmlvTRFj34L5waOFUsbEMvlIYvE3C3kU1OzsLmtXUoZDFm0JDQdD\nhtQKB3uaUF7EfvEJqCaTxfr+1xbA6MlJ6VwzkXsWfTUWaTkozDTRjfc5aLNOxZ8i\niFGTNT/xa3hsy5pQh9/Psq5IJSzYx4Qbu+AYn0+f67vvK6utSXGoYG+3ZAhKA0dK\nD73rb/ZqjFVhW4bxFfNjRa20GWygENwQxAxKYME2WQKBgQD+0fi5ZoNm6PG3uvzq\nmbniRumTFgtJQVo33ez71xwCtuUy+8WV8pW5J6QAHjtczzlAW60FdimDHdZoRWji\nKOZvdYEZMxt0BURF7NSe+EmNWlbYyJQp9tXazy+uY2LAPciAFdmGgZ+0Um93oWGh\n441X0qhPlNTbwT4sYIfMU7v2dwKBgQDeslEPG1hZwnCwcioyEDrf+EbKi/0Ogy9L\nw8HM88UdM0rwiti0p25/jZMO/0jJsWurY248qBXVexlS4Rw27zg8zWSkj+hOdDr7\nX+aCETtwkac3wtgdvszJe8ptujEo/CKvdNJ1lJaKZV6faIx9KxSVzoHPkIadrmXQ\nu+ZU7vhvmQKBgQDRvJWSVFRXgehip5/AoSMkoeVi0UQc2ZOeZCXI67b8bPmdyylI\nUFD4Ay6zgi6uJ0oiNNLmqellKEvvqyG29J8monrN+Qjhp+wX+eTPq+EuXWsaJ438\nNFS1Ms82JEuFm9TJyDIwycRfsXJZ7xTjIN6XqKYsSn4hGp9H+3QKs+kD5QKBgChw\nnzGsGI4sNgSEps7yjY5waoKLi0egYO1UPhQ2zDuyPdCSlimwIeu9zM+zYgdmVZQI\n+VLAfz6GHSIkyNfc9wxri/QqQdhFWRSe5KAH+xBFEuWYV2CHbm7EMQ1d+2Fi7/WG\ntFUvx2qYX+d4t9JfCVzu5DnKF/f4XHrcNEaGIs05AoGAHhvSgKaVZ1Ed7qj3pm2Z\nXq7jAHLJOjGBqTs4rR8Wh47gTDxh7CtNBD8wNLvm/IU6pvYa0aZwK3fz/kQnAO1j\nUInvt5E5NQUgxqBam3xKfSLAPLQv56p6YzCoJ9l3lJj+tXFLj6orpl4kDKCQHk40\nCenuASbwnVKN3Vq5RCjXyN0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-sheet@copper-cash-rates.iam.gserviceaccount.com",
+  "client_id": "106722872259590306646",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-sheet%40copper-cash-rates.iam.gserviceaccount.com"
+}
