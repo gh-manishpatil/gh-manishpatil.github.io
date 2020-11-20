@@ -3,3 +3,4 @@ venv
 requirements.txt
 lambda_function.py
 Copper
+clinet-side.json
