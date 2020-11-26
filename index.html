@@ -847,15 +847,6 @@
 			targetElement.innerHTML = resultTable;
 		};
 
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-			});
-
-			window.myLine.update();
-		});
 	</script>
 
 
